@@ -28,8 +28,7 @@ function MyTabs() {
     return (
         <Tab.Navigator 
         screenOptions={{headerShown:false}}
-        initialRouteName="Formulario"
-        >
+        initialRouteName="Calculadora">
             <Tab.Screen name="Calculadora" component={CalculadoraScreen} />
             <Tab.Screen name="Formulario" component={FormularioScreen} />
         </Tab.Navigator>
