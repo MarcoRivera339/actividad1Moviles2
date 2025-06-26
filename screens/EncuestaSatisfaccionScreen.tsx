@@ -34,21 +34,8 @@ export default function RegistroUsuarioScreen() {
                 style={styles.input}
                 onChangeText={(texto) => setcontacto(texto)}
             />
-            <TextInput
-                placeholder='Ingresar numero exterior'
-                style={styles.input}
-                onChangeText={(texto) => setnumeroexterior(texto)}
-            />
-            <TextInput
-                placeholder='Ingresar ciudad'
-                style={styles.input}
-                onChangeText={(texto) => setciudad(texto)}
-            />
-            <TextInput
-                placeholder='Ingresar referencia'
-                style={styles.input}
-                onChangeText={(texto) => setreferencia(texto)}
-            />
+            
+            
             <Button title='Guardar' onPress={() => guardar()} />
             {/* ------------------------------------------------------------------------------------------------*/}
             <View style={styles.linea} />
@@ -62,10 +49,7 @@ export default function RegistroUsuarioScreen() {
             {
                 activado == true
                     ? <View>
-                        <Text style={styles.txt} >Calle: {datos.calle}</Text>
-                        <Text style={styles.txt} >Numero Exterior: {datos.numeroexterior}</Text>
-                        <Text style={styles.txt} >Ciudad: {datos.ciudad}</Text>
-                        <Text style={styles.txt} >Referencia: {datos.referencia}</Text>
+                        <Text style={styles.txt} >Calle: {datos.contacto}</Text>
                     </View>
                     : <Text style={styles.txt} >Alerta de Spoiler</Text>
             }
