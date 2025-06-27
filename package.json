@@ -11,6 +11,7 @@
   "dependencies": {
     "@expo/metro-runtime": "~5.0.4",
     "@react-navigation/bottom-tabs": "^7.4.2",
+    "@react-navigation/material-top-tabs": "^7.3.2",
     "@react-navigation/native": "^7.1.14",
     "@react-navigation/stack": "^7.4.2",
     "expo": "~53.0.12",
@@ -23,7 +24,8 @@
     "react-native-paper": "^5.14.5",
     "react-native-safe-area-context": "^5.4.0",
     "react-native-screens": "~4.11.1",
-    "react-native-web": "^0.20.0"
+    "react-native-web": "^0.20.0",
+    "react-native-pager-view": "6.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
