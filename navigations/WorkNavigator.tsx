@@ -14,7 +14,7 @@ const Tab = createBottomTabNavigator()
 function MyWork() {
 
     return (
-        <Tab.Navigator initialRouteName="RegistroUsuario"
+        <Tab.Navigator initialRouteName="Direccion"
             screenOptions={{
                 tabBarStyle: { position: 'absolute' },
                 tabBarBackground: () => (

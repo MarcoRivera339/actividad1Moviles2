@@ -31,7 +31,6 @@ export default function ListaExternaScreen() {
                     <Text style={{fontSize:30}} >{title}</Text>
                 }
 
-
             />
         </View>
     )

@@ -10,14 +10,17 @@ export default function RegistroUsuarioScreen() {
     const [telefono, settelefono] = useState("")
     const [contrasenia, setcontrasenia] = useState("")
     const [confirmarcontrasenia, setconfirmarcontrasenia] = useState("")
-    
 
-    const [datos, setdatos] = useState({ "nombre": "", "apellido": "", "email": "", "telefono": "", "contrasenia": "", "confirmarcontrasenia": "",aceptarcondiciones: false })
+
+    const [datos, setdatos] = useState({ "nombre": "", "apellido": "", "email": "", "telefono": "", "contrasenia": "", "confirmarcontrasenia": "", aceptarcondiciones: false })
     const [activado, setactivado] = useState(false)
     const [aceptarter, setaceptarter] = useState(false)
 
     function guardar() {
         if (nombre.trim() != "" && apellido.trim() != "" && email.trim() != "" && telefono.trim() != "" && contrasenia.trim() != "" && confirmarcontrasenia.trim() != "" && aceptarter == true) {
+            if (!validarContrasenia()) {
+                return;
+            }
             setdatos(
                 {
                     "nombre": nombre.trim(),
@@ -34,6 +37,19 @@ export default function RegistroUsuarioScreen() {
         } else {
             Alert.alert("Error", "NO se permiten campos en blanco")
         }
+    }
+
+    function validarContrasenia() {
+
+        if (contrasenia.trim() !== confirmarcontrasenia.trim()) {
+            Alert.alert("Error", "Las contraseñas no coinciden");
+            return false;
+        }
+        if (contrasenia.length < 6) {
+            Alert.alert("Error", "La contraseña debe tener al menos 6 caracteres");
+            return false;
+        }
+        return true;
     }
 
     return (
@@ -98,11 +114,9 @@ export default function RegistroUsuarioScreen() {
                         <Text style={styles.txt} >Email: {datos.email}</Text>
                         <Text style={styles.txt} >Telefono: {datos.telefono}</Text>
                         <Text style={styles.txt} >Contraseña: {datos.contrasenia}</Text>
-                        <Text style={styles.txt} >Confirmar Contraseña: {datos.confirmarcontrasenia}</Text>
                         <Text style={styles.txt} >
                             Aceptó términos: {datos.aceptarcondiciones ? "Sí aceptó" : "No aceptó"}
                         </Text>
-
                     </View>
                     : <Text style={styles.txt} >Alerta de Spoiler</Text>
             }
