@@ -10,12 +10,14 @@ export default function RegistroUsuarioScreen() {
     const [telefono, settelefono] = useState("")
     const [contrasenia, setcontrasenia] = useState("")
     const [confirmarcontrasenia, setconfirmarcontrasenia] = useState("")
+    
 
-    const [datos, setdatos] = useState({ "nombre": "", "apellido": "", "email": "", "telefono": "", "contrasenia": "", "confirmarcontrasenia": "" })
+    const [datos, setdatos] = useState({ "nombre": "", "apellido": "", "email": "", "telefono": "", "contrasenia": "", "confirmarcontrasenia": "",aceptarcondiciones: false })
     const [activado, setactivado] = useState(false)
+    const [aceptarter, setaceptarter] = useState(false)
 
     function guardar() {
-        if (nombre.trim() != "" && apellido.trim() != "" && email.trim() != "" && telefono.trim() != "" && contrasenia.trim() != "" && confirmarcontrasenia.trim() != "") {
+        if (nombre.trim() != "" && apellido.trim() != "" && email.trim() != "" && telefono.trim() != "" && contrasenia.trim() != "" && confirmarcontrasenia.trim() != "" && aceptarter == true) {
             setdatos(
                 {
                     "nombre": nombre.trim(),
@@ -24,6 +26,8 @@ export default function RegistroUsuarioScreen() {
                     "telefono": telefono.trim(),
                     "contrasenia": contrasenia.trim(),
                     "confirmarcontrasenia": confirmarcontrasenia.trim(),
+                    "aceptarcondiciones": aceptarter
+
                 }
             )
             Alert.alert("Mensaje", "Los datos se han guardado correctamente")
@@ -54,6 +58,7 @@ export default function RegistroUsuarioScreen() {
                 placeholder='Ingresar Telefono'
                 style={styles.input}
                 onChangeText={(texto) => settelefono(texto)}
+                keyboardType='numeric'
             />
             <TextInput
                 placeholder='Ingresar Contraseña'
@@ -65,15 +70,25 @@ export default function RegistroUsuarioScreen() {
                 style={styles.input}
                 onChangeText={(texto) => setconfirmarcontrasenia(texto)}
             />
+            <View style={styles.option} >
+                <Text style={styles.txt} >Aceptar terminos y condiciones</Text>
+                <Switch
+                    value={aceptarter}
+                    onValueChange={() => setaceptarter(!aceptarter)}
+                />
+            </View>
             <Button title='Guardar' onPress={() => guardar()} />
             {/* ------------------------------------------------------------------------------------------------*/}
             <View style={styles.linea} />
-            <Text style={styles.txt} >Ver datos</Text>
-            <Switch
-                value={activado}
-                onValueChange={() => setactivado(!activado)}
-            />
-            <Text style={styles.txt} >Aceptar terminos y condiciones</Text>
+
+            <View style={styles.option} >
+                <Text style={styles.txt} >Ver datos</Text>
+                <Switch
+                    value={activado}
+                    onValueChange={() => setactivado(!activado)}
+                />
+            </View>
+
             <View style={styles.linea} />
             {
                 activado == true
@@ -84,6 +99,10 @@ export default function RegistroUsuarioScreen() {
                         <Text style={styles.txt} >Telefono: {datos.telefono}</Text>
                         <Text style={styles.txt} >Contraseña: {datos.contrasenia}</Text>
                         <Text style={styles.txt} >Confirmar Contraseña: {datos.confirmarcontrasenia}</Text>
+                        <Text style={styles.txt} >
+                            Aceptó términos: {datos.aceptarcondiciones ? "Sí aceptó" : "No aceptó"}
+                        </Text>
+
                     </View>
                     : <Text style={styles.txt} >Alerta de Spoiler</Text>
             }
@@ -105,6 +124,9 @@ export default function RegistroUsuarioScreen() {
 }
 
 const styles = StyleSheet.create({
+    option: {
+        flexDirection: 'row',
+    },
     txt: {
         fontSize: 20,
     },

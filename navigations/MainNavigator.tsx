@@ -9,6 +9,7 @@ import CalculadoraScreen from "../screens/CalculadoraScreen";
 import FormularioScreen from "../screens/FormularioScreen";
 import ListaLocal1Screen from "../screens/listas/ListaLocal1Screen";
 import ListaLocal2Screen from "../screens/listas/ListaLocal2Screen";
+import ListaExternaScreen from '../screens/listas/ListaExternaScreen';
 
 const Stack = createStackNavigator()
 
@@ -46,12 +47,11 @@ const Top = createMaterialTopTabNavigator()
             <Top.Navigator initialRouteName="ListaLocal2">
                 <Top.Screen name="ListaLocal1" component={ListaLocal1Screen} />
                 <Top.Screen name="ListaLocal2" component={ListaLocal2Screen} />
-
+                <Top.Screen name="Externa" component={ListaExternaScreen} />
             </Top.Navigator>
         )
     }
     
-
 export default function NavegadorPrincipal() {
 
     return (
