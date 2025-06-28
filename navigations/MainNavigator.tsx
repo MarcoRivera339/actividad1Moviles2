@@ -2,7 +2,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-
 import WelcomeScreen from "../screens/WelcomeScreen";
 import LoginScreen from "../screens/LoginScreen";
 import CalculadoraScreen from "../screens/CalculadoraScreen";
@@ -12,9 +11,7 @@ import ListaLocal2Screen from "../screens/listas/ListaLocal2Screen";
 import ListaExternaScreen from '../screens/listas/ListaExternaScreen';
 
 const Stack = createStackNavigator()
-
 function MyStack() {
-
     return (
         <Stack.Navigator initialRouteName="Tab">
             <Stack.Screen name="Welcome" component={WelcomeScreen} />
@@ -26,9 +23,7 @@ function MyStack() {
 }
 
 const Tab = createBottomTabNavigator()
-
 function MyTabs() {
-
     return (
         <Tab.Navigator
             screenOptions={{ headerShown: false }}
@@ -53,7 +48,6 @@ const Top = createMaterialTopTabNavigator()
     }
     
 export default function NavegadorPrincipal() {
-
     return (
         <NavigationContainer>
             <MyStack />

@@ -10,9 +10,7 @@ import DireccionScreen from "../screens/DireccionScreen";
 import EncuestaSatisfaccionScreen from "../screens/EncuestaSatisfaccionScreen";
 
 const Tab = createBottomTabNavigator()
-
 function MyWork() {
-
     return (
         <Tab.Navigator initialRouteName="Direccion"
             screenOptions={{
@@ -29,7 +27,6 @@ function MyWork() {
                     tabBarIcon: () => (<AntDesign name="home" size={24} color="black" />)
                 }}
             />
-
             <Tab.Screen
                 name="Direccion"
                 component={DireccionScreen}
@@ -37,9 +34,6 @@ function MyWork() {
                     tabBarIcon: () => (<Entypo name="login" size={24} color="black" />)
                 }}
             />
-
-
-
             <Tab.Screen
                 name="EncuestaSatisfaccion"
                 component={EncuestaSatisfaccionScreen}
@@ -52,7 +46,6 @@ function MyWork() {
 }
 
 export default function WorkNavigator() {
-
     return (
         <NavigationContainer>
             <MyWork />

@@ -8,13 +8,8 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import { BlurView } from 'expo-blur';
 import { StyleSheet } from "react-native";
 
-
-
-
 const Tab = createBottomTabNavigator()
-
 function MyTab() {
-
     return (
         <Tab.Navigator initialRouteName="Calculadora"
             screenOptions={{
